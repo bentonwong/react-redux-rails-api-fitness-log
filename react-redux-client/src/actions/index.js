@@ -5,12 +5,9 @@ export function fetchPosts() {
   fetch(`${POSTS_API_URL_ROOT}.json`)
       .then(resp => resp.json())
       .then(posts => {
-        this.setState({ posts })
+        return {
+          type: FETCH_POSTS,
+          payload: posts
+        };
       });
-  console.log(this.state);
-
-  return {
-    type: FETCH_POSTS,
-    payload: this.state
-  };
 }
