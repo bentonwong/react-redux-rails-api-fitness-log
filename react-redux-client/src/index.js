@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Route } from 'react-router-dom';
-import promise from 'redux-promise';
 
-import reducers from './reducers';
+
+import rootReducer from './reducers';
 import PostsIndex from './components/posts_index'
 
 
-const store = createStore(reducers,
-    compose(applyMiddleware(thunk))
-);
+const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 ReactDOM.render(
   <Provider store={store}>
