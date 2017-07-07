@@ -1,5 +1,5 @@
-module api
-  module v1
+module Api
+  module V1
     class PostsController < ApplicationController
       before_action :set_post, only: [:show, :destroy]
 
