@@ -1,41 +1,47 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const NewPost = props => {
+class NewPost extends Component {
+
+  renderField(field) {
+    return (
+      <div className="form-group">
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          type="text"
+          {...field.input}
+        />
+      </div>
+    );
+  }
 
   render() {
     return (
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
-          <label>Date</label>
-          <Field name="date" component="input" type="text" placeholder="date" />
+          <Field label="Date" name="date" component={this.renderField} />
+        </div>
         <div>
+          <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={this.renderField} />
+        </div>
         <div>
-          <label>Context (e.g. notes, mood, events)</label>
-          <Field name="context" component="input" type="text" placeholder="context" />
+          <Field label="Food" name="food" component={this.renderField} />
+        </div>
         <div>
+          <Field label="Workout" name="workout" component={this.renderField} />
+        </div>
         <div>
-          <label>Food</label>
-          <Field name="food" component="input" type="text" placeholder="food" />
+          <Field label="Weight" name="weight" component={this.renderField} />
+        </div>
+
         <div>
-        <div>
-          <label>Workout</label>
-          <Field name="workout" component="input" type="text" placeholder="workout" />
-        <div>
-        <div>
-          <label>Weight</label>
-          <Field name="weight" component="input" type="text" placeholder="weight" />
-        <div>
-        <div>
-          <button type="submit" disabled={pristine || submitting}>Submit</button>
-          <button type="button" disabled={pristine || submitting} onClick={reset}>Cancel</button>
+          <button type="submit">Submit</button>
+          <button type="button">Cancel</button>
         </div>
       </form>
     )
   }
-
 }
 
-export default reduxForm({
-  form: 'newPost'
-})(NewPost)
+export default reduxForm({form: 'NewPostForm'})(NewPost)
