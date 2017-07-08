@@ -12,13 +12,20 @@ class NewPost extends Component {
           type="text"
           {...field.input}
         />
+        {field.meta.touched ? field.meta.error : ''}
       </div>
     );
   }
 
+  onSubmit(values) {
+    console.log(values)
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
           <Field label="Date" name="date" component={this.renderField} />
         </div>
@@ -36,8 +43,8 @@ class NewPost extends Component {
         </div>
 
         <div>
-          <button type="submit">Submit</button>
-          <button type="button">Cancel</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="button" className="btn btn-secondary">Cancel</button>
         </div>
       </form>
     )
@@ -46,20 +53,21 @@ class NewPost extends Component {
 
 function validate(values) {
   const errors = {};
+    //enter a date validation so that the date is not greater than today
     if (!values.date) {
       errors.date = "Date required"
     }
     if (!values.context) {
-      errors.date = "Context required"
+      errors.context = "Context required"
     }
     if (!values.food) {
-      errors.date = "Food information required"
+      errors.food = "Food information required"
     }
     if (!values.workout) {
-      errors.date = "Workout information required"
+      errors.workout = "Workout information required"
     }
     if (!values.weight) {
-      errors.date = "Weight required"
+      errors.weight = "Weight required"
     }
   return errors;
 }
