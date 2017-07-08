@@ -44,4 +44,27 @@ class NewPost extends Component {
   }
 }
 
-export default reduxForm({form: 'NewPostForm'})(NewPost)
+function validate(values) {
+  const errors = {};
+    if (!values.date) {
+      errors.date = "Date required"
+    }
+    if (!values.context) {
+      errors.date = "Context required"
+    }
+    if (!values.food) {
+      errors.date = "Food information required"
+    }
+    if (!values.workout) {
+      errors.date = "Workout information required"
+    }
+    if (!values.weight) {
+      errors.date = "Weight required"
+    }
+  return errors;
+}
+
+export default reduxForm({
+  validate,
+  form: 'NewPostForm'
+})(NewPost)
