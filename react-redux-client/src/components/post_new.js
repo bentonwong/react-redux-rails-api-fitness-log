@@ -3,6 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { createPost } from '../actions';
 import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class NewPost extends Component {
 
@@ -23,6 +26,13 @@ class NewPost extends Component {
     );
   }
 
+  FormDatepicker(field) {
+    const selected = field.input.value ? moment(field.input.value) : null;
+    return (
+      <DatePicker {...field.input} className="form-control" selected={selected} />
+    );
+  }
+
   onSubmit(values) {
     this.props.createPost(values, () => {
       this.props.history.push('/');
@@ -35,7 +45,8 @@ class NewPost extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
-          <Field label="Date" name="date" component={this.renderField} />
+          <label>Date</label>
+          <Field label="Date" name="date" component={this.FormDatepicker} />
         </div>
         <div>
           <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={this.renderField} />
