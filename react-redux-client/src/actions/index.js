@@ -31,7 +31,6 @@ export function createPost(post, callback) {
 }
 
 export function fetchPost(id) {
-  console.log("id: ", id)
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}/${id}.json`)
       .then(response => response.json())
@@ -40,4 +39,8 @@ export function fetchPost(id) {
         post
       }));
   };
+}
+
+export function deletePost(id) {
+
 }
