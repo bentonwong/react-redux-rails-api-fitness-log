@@ -11,7 +11,8 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
-    return _.map(this.props.posts, post => {
+    const revSortedPostsArray = _.sortBy(this.props.posts, 'date').reverse();
+    return _.map(revSortedPostsArray, post => {
       return (
         <li className='list-group-item' key={post.id}>
           <Link to={`/posts/${post.id}`}>{post.date} | {post.context}</Link>
@@ -21,8 +22,8 @@ class PostsIndex extends Component {
   }
 
   render() {
-
-    const weight_data = _.map(this.props.posts, post => post.weight)
+    const sortedPostsArray = _.sortBy(this.props.posts, 'date');
+    const weight_data = _.map(sortedPostsArray, post => post.weight)
 
     return (
       <div>
