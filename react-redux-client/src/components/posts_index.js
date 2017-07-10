@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import { Sparklines } from 'react-sparklines';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -10,6 +11,7 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
+    const weight_data = _.map(this.props.posts, post => post.weight)
     return _.map(this.props.posts, post => {
       return (
         <li className='list-group-item' key={post.id}>

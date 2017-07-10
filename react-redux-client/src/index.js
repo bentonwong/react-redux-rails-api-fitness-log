@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Provider } from 'react-redux';
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import rootReducer from './reducers';
 import PostsIndex from './components/posts_index';
