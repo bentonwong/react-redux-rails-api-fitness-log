@@ -9,16 +9,18 @@ class PostsShow extends Component {
     this.props.fetchPost(id);
   }
 
+  handleDeleteClick() {
+    const id = this.props.match.params.id;
+    this.props.deletePost(id, () => {
+      this.props.history.push('/')
+    });
+  }
+
   render () {
     const { post } = this.props;
 
     if (!post) {
       return <div>loading...</div>
-    }
-
-    handleDeleteClick() {
-      const id = this.props.match.params.id;
-      this.props.deletePost(id);
     }
 
     return (
@@ -31,7 +33,7 @@ class PostsShow extends Component {
         <p>Food: {post.food}</p>
         <p>Workout: {post.workout}</p>
         <p>Weight: {post.weight}</p>
-        <button onClick={this.handleDeleteClick.bind(this))} type="submit" className="btn btn-primary pull-xs-right">Delete</button>
+        <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-primary pull-xs-right">Delete</button>
       </div>
     );
   }

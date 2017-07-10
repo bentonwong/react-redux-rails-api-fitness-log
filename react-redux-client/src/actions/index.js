@@ -1,6 +1,7 @@
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_POST = 'fetch_post';
 export const CREATE_POST = 'create_post';
+export const DELETE_POST = 'delete_post';
 export const POSTS_API_URL_ROOT = 'http://localhost:3000/api/v1/posts';
 
 export function fetchPosts() {
@@ -41,6 +42,13 @@ export function fetchPost(id) {
   };
 }
 
-export function deletePost(id) {
-
+export function deletePost(id, callback) {
+  return (dispatch) => {
+    return fetch(`${POSTS_API_URL_ROOT}/${id}`)
+      .then(() => callback())
+      .then(() => dispatch({
+        type: DELETE_POST,
+        payload: id
+      }));
+  };
 }
