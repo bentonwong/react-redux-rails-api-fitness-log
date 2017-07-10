@@ -34,9 +34,9 @@ export function fetchPost(id) {
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}/${id}.json`)
       .then(response => response.json())
-      .then(posts => dispatch({
+      .then(post => dispatch({
         type: FETCH_POST,
-        posts
+        post
       }));
   };
 }
