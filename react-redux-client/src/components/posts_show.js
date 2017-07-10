@@ -1,0 +1,11 @@
+import React, { Component } from 'react';
+
+class PostsShow extends Component {
+  render () {
+    return (
+      <div>Post show placeholder</div>
+    );
+  };
+}
+
+export default PostsShow;
