@@ -16,7 +16,7 @@ export function fetchPosts() {
 
 export function createPost(post, callback) {
   return (dispatch) => {
-    return fetch(`${POSTS_API_URL_ROOT}`,
+    return fetch(`${POSTS_API_URL_ROOT}`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ post })
