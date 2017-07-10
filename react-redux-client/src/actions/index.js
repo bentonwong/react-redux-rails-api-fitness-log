@@ -44,7 +44,9 @@ export function fetchPost(id) {
 
 export function deletePost(id, callback) {
   return (dispatch) => {
-    return fetch(`${POSTS_API_URL_ROOT}/${id}`)
+    return fetch(`${POSTS_API_URL_ROOT}/${id}`, {
+      method: 'delete'
+    })
       .then(() => callback())
       .then(() => dispatch({
         type: DELETE_POST,
