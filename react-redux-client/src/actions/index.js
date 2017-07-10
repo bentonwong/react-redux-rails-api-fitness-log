@@ -50,7 +50,7 @@ export function deletePost(id, callback) {
       .then(() => callback())
       .then(() => dispatch({
         type: DELETE_POST,
-        payload: id
+        id: id
       }));
   };
 }

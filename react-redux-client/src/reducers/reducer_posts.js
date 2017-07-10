@@ -1,4 +1,4 @@
-import {FETCH_POSTS, FETCH_POST} from '../actions';
+import { FETCH_POSTS, FETCH_POST, DELETE_POST } from '../actions';
 import _ from 'lodash';
 
 export default function(state = {}, action) {
@@ -7,6 +7,8 @@ export default function(state = {}, action) {
       return _.mapKeys(action.posts, 'id');
     case FETCH_POST:
       return { ...state, [action.post.id]: action.post}
+    case DELETE_POST:
+      return _.omit(state, action.id)
     default:
       return state;
   }
