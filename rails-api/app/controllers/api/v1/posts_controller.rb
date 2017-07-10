@@ -23,7 +23,7 @@ module Api
 
       private
 
-        def notebook_params
+        def post_params
           params.require(:post).permit(:date, :context, :food, :workout, :weight)
         end
 

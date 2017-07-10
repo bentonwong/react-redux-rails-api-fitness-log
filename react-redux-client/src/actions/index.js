@@ -14,16 +14,17 @@ export function fetchPosts() {
 }
 
 export function createPost(post) {
+
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}`, {
-      method: 'POST'
-      body: post
-      })
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ post })
     })
-      .then(response => response.json())
-      .then(post => dispatch({
-        type: CREATE_POST,
-        post
-      }));
+    .then(response => response.json())
+    .then(post => dispatch({
+      type: CREATE_POST,
+      post
+    }));
   };
 }
