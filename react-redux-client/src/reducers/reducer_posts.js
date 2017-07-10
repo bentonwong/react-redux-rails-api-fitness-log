@@ -6,7 +6,6 @@ export default function(state = {}, action) {
     case FETCH_POSTS:
       return _.mapKeys(action.posts, 'id');
     case FETCH_POST:
-      debugger
       return { ...state, [action.post.id]: action.post}
     default:
       return state;

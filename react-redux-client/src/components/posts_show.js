@@ -9,8 +9,20 @@ class PostsShow extends Component {
   }
 
   render () {
+    const { post } = this.props;
+
+    if (!post) {
+      return <div>loading...</div>
+    }
+
     return (
-      <div>Post show placeholder</div>
+      <div>
+        <h4>{post.date}</h4>
+        <p>Context: {post.context}</p>
+        <p>Food: {post.food}</p>
+        <p>Workout: {post.workout}</p>
+        <p>Weight: {post.weight}</p>
+      </div>
     );
   }
 }
