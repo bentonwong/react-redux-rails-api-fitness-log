@@ -13,8 +13,7 @@ export function fetchPosts() {
   };
 }
 
-export function createPost(post) {
-
+export function createPost(post, callback) {
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}`, {
       method: 'post',
@@ -25,6 +24,7 @@ export function createPost(post) {
     .then(post => dispatch({
       type: CREATE_POST,
       post
-    }));
+    }))
+    .then(() => callback());
   };
 }
