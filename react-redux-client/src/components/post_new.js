@@ -26,7 +26,7 @@ class NewPost extends Component {
     );
   }
 
-  FormDatepicker(field) {
+  renderDatePickerField(field) {
     const selected = field.input.value ? moment(field.input.value) : null;
     return (
       <DatePicker {...field.input} className="form-control" selected={selected} />
@@ -46,7 +46,7 @@ class NewPost extends Component {
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
           <label>Date</label>
-          <Field label="Date" name="date" component={this.FormDatepicker} />
+          <Field label="Date" name="date" component={this.renderDatePickerField} />
         </div>
         <div>
           <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={this.renderField} />
