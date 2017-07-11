@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
+import ButtonLink from '../components/button_link';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -29,9 +30,7 @@ class PostsIndex extends Component {
     return (
       <div>
         <div className="text-xs-right">
-          <Link className="btn btn-primary" to="/posts/new">
-            Add Post
-          </Link>
+          <ButtonLink className="btn btn-primary" to="/posts/new" buttonText="Add Post" />
         </div>
         <div>
           <h4>Weight Data for Most Recent Posts</h4>

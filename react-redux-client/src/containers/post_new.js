@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import FormField from '../components/form_field';
+import ButtonLink from '../components/button_link';
 
 class NewPost extends Component {
 
@@ -55,10 +56,9 @@ class NewPost extends Component {
         <div>
           <Field label="Weight" name="weight" component={this.renderField} />
         </div>
-
         <div>
           <button type="submit" className="btn btn-primary">Submit</button>
-          <Link to='/' className="btn btn-danger">Cancel</Link>
+          <ButtonLink className="btn btn-danger" to="/" buttonText="Cancel" />
         </div>
       </form>
     )
