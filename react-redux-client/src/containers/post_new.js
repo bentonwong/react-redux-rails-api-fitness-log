@@ -14,7 +14,6 @@ class NewPost extends Component {
   renderField(field) {
     //need to fix has danger to appear red
     const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`
-
     return (
       <div className={className}>
         <FormField data={field} />
@@ -25,7 +24,7 @@ class NewPost extends Component {
   renderDatePickerField(field) {
     const selected = field.input.value ? moment(field.input.value) : null;
     return (
-      <DatePicker {...field.input} className="form-control" selected={selected} />
+      <DatePicker {...field.input} className="form-control" selected={selected} dateFormat="YYYY/MM/DD"/>
     );
   }
 
