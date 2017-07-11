@@ -5,7 +5,7 @@ import _ from 'lodash';
 import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
 import ButtonLink from '../components/button_link';
-import PaginatedListView from 'react-native-paginated-listview'
+import ReactPaginate from 'react-paginate';
 
 function sortedPostsArray(posts) {
   return _.sortBy(posts, 'date')
@@ -25,26 +25,28 @@ class PostsIndex extends Component {
     });
   }
 
+  handlePageClick = (data) => {
+    let selected = data.selected;
+    let offset = Math.ceil(selected * this.props.perPage);
+
+    this.setState({offset: offset}, () => {
+      this.fetchPost();
+    });
+  };
+
   render() {
     const weight_data = _.map(sortedPostsArray(this.props.posts), post => post.weight)
     return (
       <div>
         <div>
-          <h4>Weight Data for Most Recent Posts</h4>
+          <h4 className="center-text">Trending Weight Data (from Most Recent Posts)</h4>
           <Chart data={weight_data} color="green" units="lbs." />
         </div>
         <div>
-          <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-md" />
+          <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-md btn-add-margin" />
         </div>
         <div>
-          <PaginatedListView
-            renderRow={(rowData) => {
-              return (<ul className='list-group'>{this.renderPosts()}</ul>);
-            }}
-            itemsPerPage={10}
-            onFetch={this.onFetch}
-          />
-          //<ul className='list-group'>{this.renderPosts()}</ul>
+          <ul className='list-group'>{this.renderPosts()}</ul>
         </div>
       </div>
     )

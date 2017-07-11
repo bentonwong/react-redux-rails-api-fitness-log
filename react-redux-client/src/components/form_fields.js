@@ -4,7 +4,7 @@ import { Field } from 'redux-form';
 export default (props) => {
   return(
     <div>
-      <div>
+      <div className="add-margin-below-date-picker">
         <Field label="Date" name="date" component={props.dateComponent} />
       </div>
       <div>

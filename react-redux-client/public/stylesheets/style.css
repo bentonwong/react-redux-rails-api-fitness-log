@@ -9,3 +9,20 @@ h1 {
 .btn-text-center{
   text-align:center;
 }
+
+.btn-add-margin{
+  margin: 15px 0;
+}
+
+.add-margin-below-date-picker{
+  margin-bottom: 15px;
+}
+
+.center-chart {
+    margin: auto;
+    width: 50%;
+}
+
+.center-text {
+    text-align: center;
+}
