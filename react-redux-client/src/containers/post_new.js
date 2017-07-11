@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import FormField from '../components/form_field';
 
 class NewPost extends Component {
 
@@ -15,13 +16,7 @@ class NewPost extends Component {
 
     return (
       <div className={className}>
-        <label>{field.label}</label>
-        <input
-          className="form-control"
-          type="text"
-          {...field.input}
-        />
-        <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+        <FormField data={field} />
       </div>
     );
   }
