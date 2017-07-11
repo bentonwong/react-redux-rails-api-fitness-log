@@ -5,6 +5,7 @@ import { createPost } from '../actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import FormField from '../components/form_field';
+import FormFields from '../components/form_fields';
 import ButtonLink from '../components/button_link';
 import DatePickerComp from '../components/date_picker';
 
@@ -41,19 +42,7 @@ class NewPost extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
-          <Field label="Date" name="date" component={this.renderDatePickerField} />
-        </div>
-        <div>
-          <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={this.renderField} />
-        </div>
-        <div>
-          <Field label="Food" name="food" component={this.renderField} />
-        </div>
-        <div>
-          <Field label="Workout" name="workout" component={this.renderField} />
-        </div>
-        <div>
-          <Field label="Weight" name="weight" component={this.renderField} />
+          <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} />
         </div>
         <div>
           <button type="submit" className="btn btn-primary">Submit</button>
