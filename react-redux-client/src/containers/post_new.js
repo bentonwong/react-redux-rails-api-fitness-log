@@ -24,7 +24,18 @@ class NewPost extends Component {
   renderDatePickerField(field) {
     const selected = field.input.value ? moment(field.input.value) : null;
     return (
-      <DatePicker {...field.input} className="form-control" selected={selected} dateFormat="YYYY/MM/DD"/>
+      <div>
+        <label>{field.label}</label>
+        <DatePicker {...field.input}
+        className="form-control"
+        selected={selected}
+        dateFormat="YYYY/MM/DD"
+        todayButton={"Today"}
+        maxDate={moment()}
+        placeholderText="Click to select a date"
+        />
+        <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+      </div>
     );
   }
 
@@ -40,7 +51,6 @@ class NewPost extends Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
-          <label>Date</label>
           <Field label="Date" name="date" component={this.renderDatePickerField} />
         </div>
         <div>
