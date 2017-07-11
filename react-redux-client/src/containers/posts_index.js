@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
 import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
 import ButtonLink from '../components/button_link';

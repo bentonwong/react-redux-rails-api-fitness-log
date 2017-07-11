@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
-import { Link } from 'react-router-dom';
 import ShowPost from '../components/show_post';
 import ButtonLink from '../components/button_link';
 

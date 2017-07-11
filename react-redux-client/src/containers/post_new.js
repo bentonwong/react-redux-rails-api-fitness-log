@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { reduxForm } from 'redux-form';
 import { createPost } from '../actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
