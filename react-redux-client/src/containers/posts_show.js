@@ -5,15 +5,17 @@ import { Link } from 'react-router-dom';
 import ShowPost from '../components/show_post';
 import ButtonLink from '../components/button_link';
 
+function id (props) {
+  return props.match.params.id;
+}
+
 class PostsShow extends Component {
   componentDidMount() {
-    const id = this.props.match.params.id;
-    this.props.fetchPost(id);
+    this.props.fetchPost(id(this.props));
   }
 
   handleDeleteClick() {
-    const id = this.props.match.params.id;
-    this.props.deletePost(id, () => {
+    this.props.deletePost(id(this.props), () => {
       this.props.history.push('/')
     });
   }

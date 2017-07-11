@@ -28,7 +28,6 @@ class PostsIndex extends Component {
 
   render() {
     const weight_data = _.map(sortedPostsArray(this.props.posts), post => post.weight)
-
     return (
       <div>
         <div className="text-xs-right">
@@ -38,7 +37,9 @@ class PostsIndex extends Component {
           <h4>Weight Data for Most Recent Posts</h4>
           <Chart data={weight_data} color="green" units="lbs." />
         </div>
-        <ul className='list-group'>{this.renderPosts()}</ul>
+        <div>
+          <ul className='list-group'>{this.renderPosts()}</ul>
+        </div>
       </div>
     )
   }
