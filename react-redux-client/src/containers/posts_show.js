@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
 import { Link } from 'react-router-dom';
+import ShowPost from '../components/show_post'
 
 class PostsShow extends Component {
   componentDidMount() {
@@ -28,11 +29,7 @@ class PostsShow extends Component {
         <Link className="btn btn-primary" to="/">
           Back to Posts
         </Link>
-        <h4>{post.date}</h4>
-        <p>Context: {post.context}</p>
-        <p>Food: {post.food}</p>
-        <p>Workout: {post.workout}</p>
-        <p>Weight: {post.weight}</p>
+        <ShowPost data={post} />
         <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-primary pull-xs-right">Delete</button>
       </div>
     );

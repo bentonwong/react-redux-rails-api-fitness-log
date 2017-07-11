@@ -4,7 +4,7 @@ import { fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
-import Chart from './chart';
+import Chart from '../components/chart';
 
 class PostsIndex extends Component {
   componentDidMount() {

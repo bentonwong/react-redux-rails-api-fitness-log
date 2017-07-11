@@ -8,9 +8,9 @@ import thunk from 'redux-thunk';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import rootReducer from './reducers';
-import PostsIndex from './components/posts_index';
-import PostNew from './components/post_new';
-import PostsShow from './components/posts_show';
+import PostsIndex from './containers/posts_index';
+import PostNew from './containers/post_new';
+import PostsShow from './containers/posts_show';
 
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
