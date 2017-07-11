@@ -4,6 +4,7 @@ import { fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
+import Chart from './chart';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class PostsIndex extends Component {
   }
 
   render() {
+
     const sortedPostsArray = _.sortBy(this.props.posts, 'date');
     const weight_data = _.map(sortedPostsArray, post => post.weight)
 
@@ -33,9 +35,8 @@ class PostsIndex extends Component {
           </Link>
         </div>
         <div>
-          <Sparklines data={weight_data} limit={30} width={100} height={25}>
-            <SparklinesLine color="blue" />
-          </Sparklines>
+          <h4>Weight Data for Most Recent Posts</h4>
+          <Chart data={weight_data} color="green" units="lbs." />
         </div>
         <ul className='list-group'>{this.renderPosts()}</ul>
       </div>
