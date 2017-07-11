@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+30.times do
+  Post.create([{
+    date: Faker::Date.between(30.days.ago, Date.today),
+    context: Faker::Hipster.sentence(3, false, 4),
+    food: Faker::Food.dish,
+    workout: Faker::Team.sport,
+    weight: Faker::Number.normal(160, 5.0)
+    }])
+end
