@@ -76,7 +76,6 @@ class NewPost extends Component {
 
 function validate(values) {
   const errors = {};
-    //enter a date validation so that the date is not greater than today
     if (!values.date) {
       errors.date = "Date required"
     }
@@ -91,6 +90,10 @@ function validate(values) {
     }
     if (!values.weight) {
       errors.weight = "Weight required"
+    } else if (isNaN(Number(values.weight))) {
+      errors.weight = "Must be a number"
+    } else if (Number(values.weight) < 1) {
+      errors.weight = "Must be greater than 0"
     }
   return errors;
 }
