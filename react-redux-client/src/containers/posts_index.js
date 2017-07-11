@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import Chart from '../components/chart';
+import ShowIndexPost from '../components/show_index_post';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -15,9 +16,7 @@ class PostsIndex extends Component {
     const revSortedPostsArray = _.sortBy(this.props.posts, 'date').reverse();
     return _.map(revSortedPostsArray, post => {
       return (
-        <li className='list-group-item' key={post.id}>
-          <Link to={`/posts/${post.id}`}>{post.date} | {post.context}</Link>
-        </li>
+        <ShowIndexPost data={post} />
       );
     });
   }
