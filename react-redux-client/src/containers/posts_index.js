@@ -8,14 +8,18 @@ import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
 import ButtonLink from '../components/button_link';
 
+function sortedPostsArray(posts) {
+  return _.sortBy(posts, 'date')
+}
+
 class PostsIndex extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
 
   renderPosts() {
-    const revSortedPostsArray = _.sortBy(this.props.posts, 'date').reverse();
-    return _.map(revSortedPostsArray, post => {
+    const SortedPostsArray = sortedPostsArray(this.props.posts);
+    return _.map(SortedPostsArray.reverse(), post => {
       return (
         <ShowIndexPost data={post} />
       );
@@ -23,9 +27,7 @@ class PostsIndex extends Component {
   }
 
   render() {
-
-    const sortedPostsArray = _.sortBy(this.props.posts, 'date');
-    const weight_data = _.map(sortedPostsArray, post => post.weight)
+    const weight_data = _.map(sortedPostsArray(this.props.posts), post => post.weight)
 
     return (
       <div>
