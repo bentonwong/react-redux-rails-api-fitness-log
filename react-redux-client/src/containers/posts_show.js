@@ -26,11 +26,16 @@ class PostsShow extends Component {
       return <div>loading...</div>
     }
 
+//  <Link to={`/posts/${props.data.id}`}>{dateFormat(props.data.date, "mmm dd, yyyy")} |
+
     return (
       <div>
         <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
-        <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-danger btn-md">Delete this Post</button>
+        <div className="btn-group btn-group-sm btn-add-margin">
+          <button className="btn btn-info"><ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit Post" className="btn-text-white btn-text-center" /></button>
+          <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-danger btn-md">Delete Post</button>
+        </div>
       </div>
     );
   }

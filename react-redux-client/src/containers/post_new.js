@@ -8,7 +8,7 @@ import FormFields from '../components/form_fields';
 import ButtonLink from '../components/button_link';
 import DatePickerComp from '../components/date_picker';
 
-class NewPost extends Component {
+class PostForm extends Component {
 
   renderField(field) {
     //need to fix has danger to appear red
@@ -80,7 +80,7 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'NewPostForm'
+  form: 'PostForm'
 })(
-  connect(null, { createPost })(NewPost)
+  connect(null, { createPost })(PostForm)
 );
