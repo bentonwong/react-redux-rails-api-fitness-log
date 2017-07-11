@@ -9,6 +9,8 @@
     "react-datepicker": "^0.49.0",
     "react-dom": "^15.6.1",
     "react-intl": "^2.3.0",
+    "react-native-paginated-listview": "^1.0.2",
+    "react-paginate": "^4.4.3",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-scripts": "1.0.10",

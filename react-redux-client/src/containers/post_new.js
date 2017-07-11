@@ -44,9 +44,9 @@ class NewPost extends Component {
           <div>
             <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} />
           </div>
-          <div>
+          <div className="btn-group btn-group-sm">
             <button type="submit" className="btn btn-primary">Submit</button>
-            <ButtonLink className="btn btn-danger" to="/" buttonText="Cancel" />
+            <button className="btn btn-danger"><ButtonLink to="/" buttonText="Cancel" className="btn-text-white btn-text-center" /></button>
           </div>
         </form>
       </div>

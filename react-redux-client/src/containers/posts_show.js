@@ -28,9 +28,9 @@ class PostsShow extends Component {
 
     return (
       <div>
-        <ButtonLink className="btn btn-primary" to="/" buttonText="Back to Posts" />
+        <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
-        <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-primary pull-xs-right">Delete</button>
+        <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-danger btn-md">Delete this Post</button>
       </div>
     );
   }
