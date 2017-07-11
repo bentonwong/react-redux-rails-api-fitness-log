@@ -3,11 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { createPost } from '../actions';
 import { connect } from 'react-redux';
-import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
 import FormField from '../components/form_field';
 import ButtonLink from '../components/button_link';
+import DatePickerComp from '../components/date_picker';
 
 class NewPost extends Component {
 
@@ -25,16 +24,7 @@ class NewPost extends Component {
     const selected = field.input.value ? moment(field.input.value) : null;
     return (
       <div>
-        <label>{field.label}</label>
-        <DatePicker {...field.input}
-        className="form-control"
-        selected={selected}
-        dateFormat="YYYY/MM/DD"
-        todayButton={"Today"}
-        maxDate={moment()}
-        placeholderText="Click to select a date"
-        />
-        <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+        <DatePickerComp data={field} selected={selected} />
       </div>
     );
   }
@@ -89,12 +79,12 @@ function validate(values) {
       errors.workout = "Workout information required"
     }
     if (!values.weight) {
-      errors.weight = "Weight required"
-    } else if (isNaN(Number(values.weight))) {
-      errors.weight = "Must be a number"
-    } else if (Number(values.weight) < 1) {
-      errors.weight = "Must be greater than 0"
-    }
+        errors.weight = "Weight required"
+      } else if (isNaN(Number(values.weight))) {
+        errors.weight = "Must be a number"
+      } else if (Number(values.weight) < 1) {
+        errors.weight = "Must be greater than 0"
+      }
   return errors;
 }
 
