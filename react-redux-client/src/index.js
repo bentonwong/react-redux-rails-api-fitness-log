@@ -19,7 +19,6 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <header>My Fitness Log</header>
         <Switch>
           <Route path="/posts/new" component={PostNew} />
           <Route path="/posts/:id" component={PostsShow} />

@@ -39,15 +39,17 @@ class NewPost extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <div>
-          <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} />
-        </div>
-        <div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-          <ButtonLink className="btn btn-danger" to="/" buttonText="Cancel" />
-        </div>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <div>
+            <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} />
+          </div>
+          <div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <ButtonLink className="btn btn-danger" to="/" buttonText="Cancel" />
+          </div>
+        </form>
+      </div>
     )
   }
 }
