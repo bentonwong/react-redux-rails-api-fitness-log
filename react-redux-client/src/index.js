@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import rootReducer from './reducers';
 import PostsIndex from './containers/posts_index';
-import PostNew from './containers/post_new';
+import PostForm from './containers/post_form';
 import PostsShow from './containers/posts_show';
 
 
@@ -20,7 +20,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/posts/new" component={PostNew} />
+          <Route path="/posts/new" component={PostForm} />
+          <Route path="/posts/edit/:id" component={PostForm} />
           <Route path="/posts/:id" component={PostsShow} />
           <Route path="/" component={PostsIndex} />
         </Switch>

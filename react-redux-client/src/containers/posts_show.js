@@ -26,8 +26,6 @@ class PostsShow extends Component {
       return <div>loading...</div>
     }
 
-//  <Link to={`/posts/${props.data.id}`}>{dateFormat(props.data.date, "mmm dd, yyyy")} |
-
     return (
       <div>
         <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />

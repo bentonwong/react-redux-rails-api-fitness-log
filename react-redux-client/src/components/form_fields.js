@@ -8,7 +8,7 @@ export default (props) => {
         <Field label="Date" name="date" component={props.dateComponent} />
       </div>
       <div>
-        <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={props.component} />
+        <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={props.component}  />
       </div>
       <div>
         <Field label="Food" name="food" component={props.component} />

@@ -11,7 +11,6 @@ import DatePickerComp from '../components/date_picker';
 class PostForm extends Component {
 
   renderField(field) {
-    //need to fix has danger to appear red
     const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`
     return (
       <div className={className}>
@@ -50,7 +49,7 @@ class PostForm extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
@@ -78,9 +77,13 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps({ posts }, ownProps) {
+  return { post: posts[ownProps.match.params.id] };
+}
+
 export default reduxForm({
   validate,
   form: 'PostForm'
 })(
-  connect(null, { createPost })(PostForm)
+  connect(mapStateToProps, { createPost })(PostForm)
 );
