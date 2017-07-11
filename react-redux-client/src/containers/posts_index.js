@@ -19,7 +19,7 @@ class PostsIndex extends Component {
     const SortedPostsArray = sortedPostsArray(this.props.posts);
     return _.map(SortedPostsArray.reverse(), post => {
       return (
-        <ShowIndexPost data={post} />
+        <ShowIndexPost data={post} key={post.id}/>
       );
     });
   }
