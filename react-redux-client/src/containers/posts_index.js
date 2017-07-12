@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import _ from 'lodash';
+import { Pagination } from 'react-bootstrap';
+import { push } from 'react-router-redux';
+import queryString from 'query-string';
+import { bindActionCreators } from 'redux';
+
 import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
 import ButtonLink from '../components/button_link';
-import { Pagination } from 'react-bootstrap';
-import { push } from 'react-router-redux';
 
 function sortedPostsArray(posts) {
   return _.sortBy(posts, 'date')
@@ -21,17 +24,6 @@ class PostsIndex extends Component {
 
   componentDidMount() {
     this.props.fetchPosts();
-  }
-
-  //renderPosts() {
-    //return _.map(sortedPostsArray(this.props.posts).reverse(), post => {
-      //return (
-        //<ShowIndexPost data={post} key={post.id}/>
-      //);
-    //});
-  //}
-  changePage(page) {
-    this.props.dispatch(push('/?page=' + page));
   }
 
   render() {
@@ -68,13 +60,23 @@ class PostsIndex extends Component {
       </div>
     )
   }
+
+  changePage(page) {
+    this.props.history.push('/?page_no='+page)
+  }
+
 }
 
-function mapStateToProps(state) {
-  debugger
-  return ({ posts: state.posts,
-            page: Number(state.routing) || 1,
-   });
+function mapStateToProps(state, ownProps) {
+  var queryParam = queryString.parse(ownProps.location.search);
+  return {
+      posts: state.posts,
+      page: Number(queryParam.page_no) || 1,
+  }
 }
 
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchPosts, push }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);

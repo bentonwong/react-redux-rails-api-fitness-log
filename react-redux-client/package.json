@@ -5,6 +5,7 @@
   "dependencies": {
     "dateformat": "^2.0.0",
     "lodash": "^4.17.4",
+    "query-string": "^4.3.4",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-datepicker": "^0.49.0",
