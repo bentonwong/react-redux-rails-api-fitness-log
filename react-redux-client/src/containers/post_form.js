@@ -1,12 +1,47 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
-import { createPost, fetchPost } from '../actions';
+import { Field, reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
+import * as actions from '../actions'
+//import { createPost, fetchPost, editPost } from '../actions';
+
 import moment from 'moment';
-import FormField from '../components/form_field';
-import FormFields from '../components/form_fields';
+//import FormField from '../components/form_field';
+//import FormFields from '../components/form_fields';
 import ButtonLink from '../components/button_link';
-import DatePickerComp from '../components/date_picker';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+//import DatePickerComp from '../components/date_picker';
+
+const renderField = field => {
+  console.log(field);
+  return (
+    <div>
+      <div>
+        <label>{field.label}</label>
+        <input className="form-control" {...field.input} />
+      </div>
+      <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+    </div>
+  )
+}
+
+const renderDateField = field => {
+  const selected = field.input.value ? moment(field.input.value) : null;
+  return (
+    <div>
+      <label>{field.label}</label>
+      <DatePicker {...field.input}
+        className="form-control"
+        selected={selected}
+        dateFormat="YYYY/MM/DD"
+        todayButton={"Today"}
+        maxDate={moment()}
+        placeholderText="Click to select a date"
+      />
+      <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+    </div>
+  )
+}
 
 function id(props) {
   return props.match.params.id;
@@ -14,47 +49,53 @@ function id(props) {
 
 class PostForm extends Component {
   componentDidMount() {
-    this.props.fetchPost(id(this.props));
-  }
-
-  renderField(field) {
-    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`
-    return (
-      <div className={className}>
-        <FormField data={field} />
-      </div>
-    );
-  }
-
-  renderDatePickerField(field) {
-    const selected = field.input.value ? moment(field.input.value) : null;
-    return (
-      <div>
-        <DatePickerComp data={field} selected={selected} />
-      </div>
-    );
-  }
-
-  onSubmit(values) {
-    this.props.createPost(values, () => {
-      this.props.history.push('/');
+    this.props.fetchPost(id(this.props), () => {
+      this.handleInitialize()
     });
   }
 
-  render() {
-    const { handleSubmit, post } = this.props;
-
-    if (!post) {
-      return <div>loading...</div>
+  handleInitialize() {
+    const initData = {
+      "date": this.props.post.date,
+      "context": this.props.post.context,
+      "food": this.props.post.food,
+      "workout": this.props.post.workout,
+      "weight": this.props.post.weight
     }
+    this.props.initialize(initData);
+  }
+
+  handleFormSubmit(values) {
+    this.props.createPost(values, () => {
+     this.props.history.push('/');
+   });
+  }
+
+  render() {
+    const { handleSubmit } = this.props;
+    console.log(this.props)
     return (
       <div>
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <div>
-            <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} data={post}/>
+            <div className="add-margin-below-date-picker">
+              <Field name="date" component={renderDateField} label="Date" />
+            </div>
+            <div>
+              <Field name="context" type="text" component={renderField} label="Context (e.g. notes, mood, events, etc.)" />
+            </div>
+            <div>
+              <Field name="food" type="text" component={renderField} label="Food" />
+            </div>
+            <div>
+              <Field name="workout" type="text" component={renderField} label="Workout" />
+            </div>
+            <div>
+              <Field name="weight" type="text" component={renderField} label="Weight" />
+            </div>
           </div>
           <div className="btn-group btn-group-sm btn-add-margin">
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button action="submit" className="btn btn-primary">Submit</button>
             <button className="btn btn-danger"><ButtonLink to="/" buttonText="Cancel" className="btn-text-white btn-text-center" /></button>
           </div>
         </form>
@@ -91,9 +132,9 @@ function mapStateToProps({ posts }, ownProps) {
   return { post: posts[ownProps.match.params.id] };
 }
 
-export default reduxForm({
-  validate,
-  form: 'PostForm'
-})(
-  connect(mapStateToProps, { createPost, fetchPost })(PostForm)
-);
+const form = reduxForm({
+  form: 'PostForm',
+  validate
+});
+
+export default connect(mapStateToProps, actions)(form(PostForm));

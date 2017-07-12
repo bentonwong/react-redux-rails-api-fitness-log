@@ -48,14 +48,15 @@ export function editPost(id, post, callback) {
   };
 }
 
-export function fetchPost(id) {
+export function fetchPost(id, callback) {
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}/${id}.json`)
       .then(response => response.json())
       .then(post => dispatch({
         type: FETCH_POST,
         post
-      }));
+      }))
+      .then(() => callback());
   };
 }
 

@@ -10,7 +10,9 @@ function id(props) {
 
 class PostsShow extends Component {
   componentDidMount() {
-    this.props.fetchPost(id(this.props));
+    this.props.fetchPost(id(this.props), () => {
+      console.log(this.props)
+    });
   }
 
   handleDeleteClick() {
