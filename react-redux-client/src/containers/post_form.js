@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../actions';
+import { createPost, fetchPost } from '../actions';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import FormField from '../components/form_field';
@@ -8,7 +8,14 @@ import FormFields from '../components/form_fields';
 import ButtonLink from '../components/button_link';
 import DatePickerComp from '../components/date_picker';
 
+function id(props) {
+  return props.match.params.id;
+}
+
 class PostForm extends Component {
+  componentDidMount() {
+    this.props.fetchPost(id(this.props));
+  }
 
   renderField(field) {
     const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`
@@ -35,13 +42,16 @@ class PostForm extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, post } = this.props;
 
+    if (!post) {
+      return <div>loading...</div>
+    }
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
-            <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} />
+            <FormFields component={this.renderField} dateComponent={this.renderDatePickerField} data={post}/>
           </div>
           <div className="btn-group btn-group-sm btn-add-margin">
             <button type="submit" className="btn btn-primary">Submit</button>
@@ -85,5 +95,5 @@ export default reduxForm({
   validate,
   form: 'PostForm'
 })(
-  connect(mapStateToProps, { createPost })(PostForm)
+  connect(mapStateToProps, { createPost, fetchPost })(PostForm)
 );

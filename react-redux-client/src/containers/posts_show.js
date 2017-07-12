@@ -4,7 +4,7 @@ import { fetchPost, deletePost } from '../actions';
 import ShowPost from '../components/show_post';
 import ButtonLink from '../components/button_link';
 
-function id (props) {
+function id(props) {
   return props.match.params.id;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default (props) => {
+  debugger
   return (
     <div>
       <label>{props.data.label}</label>
