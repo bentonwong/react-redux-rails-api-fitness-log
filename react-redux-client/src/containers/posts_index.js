@@ -66,8 +66,8 @@ class PostsIndex extends Component {
     )
   }
 
-  changePage(page) {
-    this.props.history.push('/?page_no='+page)
+  changePage(page, location) {
+    this.props.history.push(`${location.target.pathname}?page_no=${page}`)
   }
 
 }
