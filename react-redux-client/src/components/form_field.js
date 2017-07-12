@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default (props) => {
-  debugger
   return (
     <div>
       <label>{props.data.label}</label>
@@ -9,6 +8,7 @@ export default (props) => {
         className="form-control"
         type="text"
         {...props.data.input}
+        value={props.data.data}
       />
       <div className="text-help">{props.data.meta.touched ? props.data.meta.error : ''}</div>
     </div>
