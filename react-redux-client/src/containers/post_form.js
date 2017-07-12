@@ -49,9 +49,11 @@ function id(props) {
 
 class PostForm extends Component {
   componentDidMount() {
-    this.props.fetchPost(id(this.props), () => {
-      this.handleInitialize()
-    });
+    if (id(this.props)) {
+      this.props.fetchPost(id(this.props), () => {
+        this.handleInitialize()
+      });
+    }
   }
 
   handleInitialize() {
@@ -66,9 +68,14 @@ class PostForm extends Component {
   }
 
   handleFormSubmit(values) {
-    this.props.createPost(values, () => {
-     this.props.history.push('/');
-   });
+    if (this.props.match.params.id) {
+      this.props.editPost(this.props.match.params.id, values, () => {
+        this.props.history.push('/');
+      });
+    } else {
+      this.props.createPost(values, () => {            this.props.history.push('/');
+      });
+    }
   }
 
   render() {
