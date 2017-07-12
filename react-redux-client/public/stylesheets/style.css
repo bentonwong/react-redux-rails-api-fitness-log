@@ -2,15 +2,20 @@ h1 {
   font-family: 'Faster One', cursive;
 }
 
-.btn-text-white{
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-text-white {
   color:white;
 }
 
-.btn-text-center{
+.btn-text-center {
   text-align:center;
 }
 
-.btn-add-margin{
+.btn-add-margin {
   margin: 15px 0;
 }
 
