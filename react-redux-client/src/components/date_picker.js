@@ -14,6 +14,7 @@ export default (props) => {
       todayButton={"Today"}
       maxDate={moment()}
       placeholderText="Click to select a date"
+      value={props.data.data}
       />
       <div className="text-help">{props.data.meta.touched ? props.data.meta.error : ''}</div>
     </div>

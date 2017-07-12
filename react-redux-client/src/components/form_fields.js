@@ -7,7 +7,7 @@ export default (props) => {
   return(
     <div>
       <div className="add-margin-below-date-picker">
-        <Field label="Date" name="date" component={props.dateComponent} data={ data } />
+        <Field label="Date" name="date" component={props.dateComponent} data={ data.date } />
       </div>
       <div>
         <Field label="Context (e.g. notes, mood, events, etc.)" name="context" component={ component } data={ data.context } />
