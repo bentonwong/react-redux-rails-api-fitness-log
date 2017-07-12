@@ -23,6 +23,11 @@ h1 {
     width: 50%;
 }
 
+.center-pagination-bar {
+    margin: auto;
+    width: 50%;
+}
+
 .center-text {
     text-align: center;
 }

@@ -30,7 +30,10 @@ class PostsIndex extends Component {
     const weight_data = _.map(sortedPostsArray(this.props.posts), post => post.weight);
 
     const per_page = 10;
-    const pages = Math.ceil(this.props.posts.length / per_page);
+    let pages = 0;
+    if (this.props.posts !== undefined) {
+      pages = Math.ceil(_.size(this.props.posts)/ per_page);
+    }
     const current_page = this.props.page;
     const start_offset = (current_page - 1) * per_page;
     let start_count = 0;
@@ -56,7 +59,9 @@ class PostsIndex extends Component {
             })}
           </ul>
         </div>
-        <Pagination bsSize="medium" maxButtons={10} first last next prev boundaryLinks items={pages} activePage={current_page} onSelect={this.changePage}/>
+        <div className="center-pagination-bar center-text">
+          <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={current_page} onSelect={this.changePage}/>
+        </div>
       </div>
     )
   }
