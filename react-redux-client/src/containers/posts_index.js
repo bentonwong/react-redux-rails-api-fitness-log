@@ -45,7 +45,7 @@ class PostsIndex extends Component {
           <Chart data={weight_data} color="green" units="lbs." />
         </div>
         <div>
-          <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-md btn-add-margin" />
+          <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-sm btn-add-margin" />
         </div>
         <div>
           <ul className='list-group'>

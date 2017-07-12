@@ -70,7 +70,7 @@ class PostForm extends Component {
   handleFormSubmit(values) {
     if (this.props.match.params.id) {
       this.props.editPost(this.props.match.params.id, values, () => {
-        this.props.history.push('/');
+        this.props.history.push(`/posts/${this.props.match.params.id}`);
       });
     } else {
       this.props.createPost(values, () => {            this.props.history.push('/');

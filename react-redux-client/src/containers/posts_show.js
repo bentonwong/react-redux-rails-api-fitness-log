@@ -30,7 +30,7 @@ class PostsShow extends Component {
 
     return (
       <div>
-        <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />
+        <ButtonLink className="btn btn-primary btn-sm" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
         <div className="btn-group btn-group-sm btn-add-margin">
           <button className="btn btn-block btn-warning"><ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn-text-white btn-text-center" /></button>

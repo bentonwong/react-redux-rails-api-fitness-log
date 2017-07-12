@@ -24,6 +24,7 @@ ReactDOM.render(
           <Route path="/posts/edit/:id" component={PostForm} />
           <Route path="/posts/:id" component={PostsShow} />
           <Route path="/" component={PostsIndex} />
+          <Route component={PostsIndex} />
         </Switch>
       </div>
     </BrowserRouter>
