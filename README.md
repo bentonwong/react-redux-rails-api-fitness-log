@@ -14,7 +14,7 @@ For more information, please see the README documentation included in either the
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bentonwong/law-firm-billing-software. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bentonwong/react-redux-rails-api-fitness-log/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
