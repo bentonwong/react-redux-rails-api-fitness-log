@@ -6,5 +6,5 @@ export default (props) => {
     <div>
       <Link to={props.to} className={props.className}>{props.buttonText}</Link>
     </div>
-  )
+  );
 }

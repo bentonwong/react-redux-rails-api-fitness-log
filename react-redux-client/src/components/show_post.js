@@ -10,5 +10,5 @@ export default (props) => {
       <p>Workout: {props.data.workout}</p>
       <p>Weight: {props.data.weight}</p>
     </div>
-  )
+  );
 }

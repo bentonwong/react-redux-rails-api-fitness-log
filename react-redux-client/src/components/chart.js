@@ -16,5 +16,5 @@ export default (props) => {
       </Sparklines>
       <div className="center-text">Average: {average(props.data)} {props.units}</div>
     </div>
-  )
+  );
 }

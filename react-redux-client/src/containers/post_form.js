@@ -10,10 +10,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import renderField from '../components/render_field';
 import renderDateField from '../components/render_date_field';
 
-function id(props) {
-  return props.match.params.id;
-}
-
 class PostForm extends Component {
   componentDidMount() {
     if (id(this.props)) {
@@ -77,6 +73,10 @@ class PostForm extends Component {
       </div>
     );
   }
+}
+
+function id(props) {
+  return props.match.params.id;
 }
 
 function validate(values) {
