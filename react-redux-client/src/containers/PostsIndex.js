@@ -7,9 +7,9 @@ import { push } from 'react-router-redux';
 import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
 
-import Chart from '../components/chart';
-import ShowIndexPost from '../components/show_index_post';
-import ButtonLink from '../components/button_link';
+import Chart from '../components/Chart';
+import IndexPost from '../components/IndexPost';
+import ButtonLink from '../components/ButtonLink';
 
 class PostsIndex extends Component {
   constructor(props) {
@@ -23,22 +23,22 @@ class PostsIndex extends Component {
   }
 
   render() {
-    const weight_data = _.map(sortedPostsArray(this.props.posts), post => post.weight);
+    const weightData = _.map(sortedPostsArray(this.props.posts), post => post.weight);
 
-    const per_page = 10;
+    const perPage = 10;
     let pages = 0;
     if (this.props.posts !== undefined) {
-      pages = Math.ceil(_.size(this.props.posts)/ per_page);
+      pages = Math.ceil(_.size(this.props.posts)/ perPage);
     }
-    const current_page = this.props.page;
-    const start_offset = (current_page - 1) * per_page;
-    let start_count = 0;
+    const currentPage = this.props.page;
+    const startOffset = (currentPage - 1) * perPage;
+    let startCount = 0;
 
     return (
       <div>
         <div className="center-chart center-text">
           <h4>Trending Weight Data (from Most Recent Posts)</h4>
-          <Chart data={weight_data} color="green" units="lbs." />
+          <Chart data={weightData} color="green" units="lbs." />
         </div>
         <div>
           <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-sm btn-add-margin" />
@@ -46,17 +46,17 @@ class PostsIndex extends Component {
         <div>
           <ul className='list-group'>
             {_.map(sortedPostsArray(this.props.posts).reverse(), (post, index) => {
-              if (index >= start_offset && start_count < per_page) {
-                start_count++;
+              if (index >= startOffset && startCount < perPage) {
+                startCount++;
                 return(
-                  <ShowIndexPost data={post} key={post.id}/>
+                  <IndexPost data={post} key={post.id}/>
                 );
               }
             })}
           </ul>
         </div>
         <div className="center-pagination-bar center-text">
-          <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={current_page} onSelect={this.changePage}/>
+          <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={currentPage} onSelect={this.changePage}/>
         </div>
       </div>
     );

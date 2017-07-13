@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
-import ShowPost from '../components/show_post';
-import ButtonLink from '../components/button_link';
+import ShowPost from '../components/ShowPost';
+import ButtonLink from '../components/ButtonLink';
 
-class PostsShow extends Component {
+class PostShow extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -44,4 +44,4 @@ function mapStateToProps({ posts }, ownProps) {
   return { post: posts[ownProps.match.params.id] };
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostShow);

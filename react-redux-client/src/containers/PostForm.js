@@ -3,10 +3,10 @@ import { Field, reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions'
 
-import ButtonLink from '../components/button_link';
+import ButtonLink from '../components/ButtonLink';
+import FormField from '../components/FormField';
+import DateField from '../components/DateField';
 import 'react-datepicker/dist/react-datepicker.css';
-import renderField from '../components/render_field';
-import renderDateField from '../components/render_date_field';
 
 class PostForm extends Component {
   componentDidMount() {
@@ -50,35 +50,35 @@ class PostForm extends Component {
           <div>
             <div className="add-margin-below-date-picker">
               <Field name="date"
-                     component={renderDateField}
+                     component={DateField}
                      label="Date"
               />
             </div>
             <div>
               <Field name="context"
                      type="text"
-                     component={renderField}
+                     component={FormField}
                      label="Context (e.g. notes, mood, events, etc.)"
               />
             </div>
             <div>
               <Field name="food"
                      type="text"
-                     component={renderField}
+                     component={FormField}
                      label="Food"
               />
             </div>
             <div>
               <Field name="workout"
                      type="text"
-                     component={renderField}
+                     component={FormField}
                      label="Workout"
               />
             </div>
             <div>
               <Field name="weight"
                      type="text"
-                     component={renderField}
+                     component={FormField}
                      label="Weight"
               />
             </div>
