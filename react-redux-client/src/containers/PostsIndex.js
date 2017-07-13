@@ -34,7 +34,7 @@ class PostsIndex extends Component {
     const startOffset = (currentPage - 1) * perPage;
     let startCount = 0;
     let pages = 0;
-    
+
     if (posts !== undefined) {
       pages = Math.ceil(_.size(posts) / perPage);
     }
@@ -74,7 +74,7 @@ function sortedPostsArray(posts) {
 }
 
 function mapStateToProps(state, ownProps) {
-  var queryParam = queryString.parse(ownProps.location.search);
+  let queryParam = queryString.parse(ownProps.location.search);
   return {
       posts: state.posts,
       page: Number(queryParam.page_no) || 1,

@@ -35,8 +35,8 @@ class PostForm extends Component {
         this.props.history.push(`/posts/${id}`);
       });
     } else {
-      this.props.createPost(values, (newPost) => {
-        this.props.history.push(`/posts/${newPost.post["id"]}`);
+      this.props.createPost(values, (newPostObj) => {
+        this.props.history.push(`/posts/${newPostObj.post["id"]}`);
       });
     }
   }

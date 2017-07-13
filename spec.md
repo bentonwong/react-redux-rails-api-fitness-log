@@ -1,7 +1,19 @@
 REQUIREMENTS
-[]  The code should be written in ES6 as much as possible
-[]  Use the create-react-app generator to start your project.
-[]  Follow the instructions on this repo to setup the generator: create-react-app
+[]  The code should be written in ES6 as much as possible.
+
+-Arrows:
+-Classes:
+-Enhanced Object Literals:
+-Template Strings:
+-Destructing:
+-Default + Rest +
+-Let + Const
+-Modules
+Math + Number + String + Array + Object APIs
+Promises
+
+
+[]  Use the create-react-app generator to start your project. Follow the instructions on this repo to setup the generator: create-react-app.
 []  Your app should have one HTML page to render your react-redux application
 []  There should be 2 container components
 []  There should be 5 stateless components
