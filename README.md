@@ -10,7 +10,7 @@ This application is a React Redux application to log daily fitness activity.  Us
 
 Data is persisted to a separate Rails API running concurrently.
 
-For more information, please see the README in either the 'react-redux-client' or 'rails-api' application.
+For more information, please see the README documentation included in either the 'react-redux-client' or 'rails-api' application folders.
 
 ## Contributing
 
