@@ -2,46 +2,13 @@ import React, { Component } from 'react';
 import { Field, reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions'
-//import { createPost, fetchPost, editPost } from '../actions';
 
 import moment from 'moment';
-//import FormField from '../components/form_field';
-//import FormFields from '../components/form_fields';
 import ButtonLink from '../components/button_link';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-//import DatePickerComp from '../components/date_picker';
-
-const renderField = field => {
-  console.log(field);
-  return (
-    <div>
-      <div>
-        <label>{field.label}</label>
-        <input className="form-control" {...field.input} />
-      </div>
-      <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
-    </div>
-  )
-}
-
-const renderDateField = field => {
-  const selected = field.input.value ? moment(field.input.value) : null;
-  return (
-    <div>
-      <label>{field.label}</label>
-      <DatePicker {...field.input}
-        className="form-control"
-        selected={selected}
-        dateFormat="YYYY/MM/DD"
-        todayButton={"Today"}
-        maxDate={moment()}
-        placeholderText="Click to select a date"
-      />
-      <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
-    </div>
-  )
-}
+import renderField from '../components/render_field';
+import renderDateField from '../components/render_date_field';
 
 function id(props) {
   return props.match.params.id;
