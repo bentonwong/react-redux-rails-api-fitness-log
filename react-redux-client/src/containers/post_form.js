@@ -73,7 +73,8 @@ class PostForm extends Component {
         this.props.history.push(`/posts/${this.props.match.params.id}`);
       });
     } else {
-      this.props.createPost(values, () => {            this.props.history.push('/');
+      this.props.createPost(values, () => {
+        this.props.history.push('/');
       });
     }
   }
