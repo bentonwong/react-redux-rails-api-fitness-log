@@ -48,7 +48,7 @@ export default (props) => {
         <button action="submit" className="btn btn-primary">Submit</button>
 
         <button className="btn btn-danger">
-          <ButtonLink to="/" buttonText="Cancel" className="btn-text-white btn-text-center" />
+          <ButtonLink to={props.id ? `/posts/${props.id}` : '/'} buttonText="Cancel" className="btn-link-text" />
         </button>
 
       </div>

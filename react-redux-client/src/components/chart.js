@@ -2,10 +2,6 @@ import React from 'react';
 import { Sparklines, SparklinesLine, SparklinesNormalBand, SparklinesReferenceLine } from 'react-sparklines';
 import _ from 'lodash';
 
-function average(data) {
-  return _.round(_.sum(data)/data.length);
-}
-
 export default (props) => {
   return (
     <div>
@@ -14,7 +10,11 @@ export default (props) => {
         <SparklinesReferenceLine type="avg" />
         <SparklinesNormalBand />
       </Sparklines>
-      <div className="center-text">Average: {average(props.data)} {props.units}</div>
+      <div className="center-text">{isNaN(average(props.data)) ? 'calculating average...' : "Average: " + average(props.data) + ` ${props.units}`}</div>
     </div>
   );
+}
+
+function average(data) {
+  return _.round(_.sum(data)/data.length);
 }

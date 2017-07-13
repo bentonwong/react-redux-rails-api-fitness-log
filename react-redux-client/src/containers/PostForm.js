@@ -42,10 +42,11 @@ class PostForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+    const { id } = this.props.match.params;
     return (
       <div>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <Form />
+          <Form id={id} />
         </form>
       </div>
     );
