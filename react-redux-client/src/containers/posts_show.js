@@ -4,10 +4,6 @@ import { fetchPost, deletePost } from '../actions';
 import ShowPost from '../components/show_post';
 import ButtonLink from '../components/button_link';
 
-function id(props) {
-  return props.match.params.id;
-}
-
 class PostsShow extends Component {
   componentDidMount() {
     this.props.fetchPost(id(this.props), () => {
@@ -39,6 +35,10 @@ class PostsShow extends Component {
       </div>
     );
   }
+}
+
+function id(props) {
+  return props.match.params.id;
 }
 
 function mapStateToProps({ posts }, ownProps) {
