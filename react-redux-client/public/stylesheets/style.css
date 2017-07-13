@@ -2,7 +2,7 @@ h1 {
   font-family: 'Faster One', cursive;
 }
 
-a:hover {
+.btn a:hover {
   color: white;
   text-decoration: none;
 }
