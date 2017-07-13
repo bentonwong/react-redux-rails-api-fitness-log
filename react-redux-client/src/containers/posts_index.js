@@ -11,10 +11,6 @@ import Chart from '../components/chart';
 import ShowIndexPost from '../components/show_index_post';
 import ButtonLink from '../components/button_link';
 
-function sortedPostsArray(posts) {
-  return _.sortBy(posts, 'date')
-}
-
 class PostsIndex extends Component {
   constructor(props) {
     super(props);
@@ -70,6 +66,10 @@ class PostsIndex extends Component {
     this.props.history.push(`${location.target.pathname}?page_no=${page}`)
   }
 
+}
+
+function sortedPostsArray(posts) {
+  return _.sortBy(posts, 'date')
 }
 
 function mapStateToProps(state, ownProps) {
