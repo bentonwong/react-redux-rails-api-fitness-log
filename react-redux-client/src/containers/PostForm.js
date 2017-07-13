@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+
 import Form from '../components/Form';
 
 class PostForm extends Component {
@@ -34,8 +35,8 @@ class PostForm extends Component {
         this.props.history.push(`/posts/${id}`);
       });
     } else {
-      this.props.createPost(values, () => {
-        this.props.history.push('/');
+      this.props.createPost(values, (newPost) => {
+        this.props.history.push(`/posts/${newPost.post["id"]}`);
       });
     }
   }

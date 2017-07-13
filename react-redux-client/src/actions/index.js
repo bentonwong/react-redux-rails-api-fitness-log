@@ -28,7 +28,7 @@ export function createPost(post, callback) {
       type: CREATE_POST,
       post
     }))
-    .then(() => callback());
+    .then((post) => callback(post));
   };
 }
 

@@ -22,19 +22,22 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
 
+  changePage(page, location) {
+    this.props.history.push(`${location.target.pathname}?page_no=${page}`)
+  }
+
   render() {
     const { posts, page } = this.props;
-
     const weightData = _.map(sortedPostsArray(posts), post => post.weight);
-
     const perPage = 10;
-    let pages = 0;
-    if (posts !== undefined) {
-      pages = Math.ceil(_.size(posts) / perPage);
-    }
     const currentPage = page;
     const startOffset = (currentPage - 1) * perPage;
     let startCount = 0;
+    let pages = 0;
+    
+    if (posts !== undefined) {
+      pages = Math.ceil(_.size(posts) / perPage);
+    }
 
     return (
       <div>
@@ -64,9 +67,6 @@ class PostsIndex extends Component {
     );
   }
 
-  changePage(page, location) {
-    this.props.history.push(`${location.target.pathname}?page_no=${page}`)
-  }
 }
 
 function sortedPostsArray(posts) {
