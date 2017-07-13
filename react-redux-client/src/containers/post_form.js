@@ -49,24 +49,45 @@ class PostForm extends Component {
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <div>
             <div className="add-margin-below-date-picker">
-              <Field name="date" component={renderDateField} label="Date" />
+              <Field name="date"
+                     component={renderDateField}
+                     label="Date"
+              />
             </div>
             <div>
-              <Field name="context" type="text" component={renderField} label="Context (e.g. notes, mood, events, etc.)" />
+              <Field name="context"
+                     type="text"
+                     component={renderField}
+                     label="Context (e.g. notes, mood, events, etc.)"
+              />
             </div>
             <div>
-              <Field name="food" type="text" component={renderField} label="Food" />
+              <Field name="food"
+                     type="text"
+                     component={renderField}
+                     label="Food"
+              />
             </div>
             <div>
-              <Field name="workout" type="text" component={renderField} label="Workout" />
+              <Field name="workout"
+                     type="text"
+                     component={renderField}
+                     label="Workout"
+              />
             </div>
             <div>
-              <Field name="weight" type="text" component={renderField} label="Weight" />
+              <Field name="weight"
+                     type="text"
+                     component={renderField}
+                     label="Weight"
+              />
             </div>
           </div>
           <div className="btn-group btn-group-sm btn-add-margin">
             <button action="submit" className="btn btn-primary">Submit</button>
-            <button className="btn btn-danger"><ButtonLink to="/" buttonText="Cancel" className="btn-text-white btn-text-center" /></button>
+            <button className="btn btn-danger">
+              <ButtonLink to="/" buttonText="Cancel" className="btn-text-white btn-text-center" />
+            </button>
           </div>
         </form>
       </div>

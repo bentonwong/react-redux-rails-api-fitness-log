@@ -9,14 +9,16 @@ export default (props) => {
     <div>
       <label>{props.label}</label>
       <DatePicker {...props.input}
-        className="form-control"
-        selected={selected}
-        dateFormat="YYYY/MM/DD"
-        todayButton={"Today"}
-        maxDate={moment()}
-        placeholderText="Click to select a date"
+                  className="form-control"
+                  selected={selected}
+                  dateFormat="YYYY/MM/DD"
+                  todayButton={"Today"}
+                  maxDate={moment()}
+                  placeholderText="Click to select a date"
       />
-      <div className="text-help">{props.meta.touched ? props.meta.error : ''}</div>
+      <div className="text-help">
+        {props.meta.touched ? props.meta.error : ''}
+      </div>
     </div>
   );
 }
