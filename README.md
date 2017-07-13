@@ -1,4 +1,4 @@
-# react-redux-rails-api-fitness-log
+# Fitness Log React Redux Client Side Application with a Backend Rails API
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
