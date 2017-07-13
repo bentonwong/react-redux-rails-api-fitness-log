@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
-import _ from 'lodash';
 import { Pagination } from 'react-bootstrap';
 import { push } from 'react-router-redux';
-import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
+import queryString from 'query-string';
 
 import Chart from '../components/Chart';
 import IndexPost from '../components/IndexPost';
@@ -23,14 +23,16 @@ class PostsIndex extends Component {
   }
 
   render() {
-    const weightData = _.map(sortedPostsArray(this.props.posts), post => post.weight);
+    const { posts, page } = this.props;
+
+    const weightData = _.map(sortedPostsArray(posts), post => post.weight);
 
     const perPage = 10;
     let pages = 0;
-    if (this.props.posts !== undefined) {
-      pages = Math.ceil(_.size(this.props.posts)/ perPage);
+    if (posts !== undefined) {
+      pages = Math.ceil(_.size(posts) / perPage);
     }
-    const currentPage = this.props.page;
+    const currentPage = page;
     const startOffset = (currentPage - 1) * perPage;
     let startCount = 0;
 
@@ -45,7 +47,7 @@ class PostsIndex extends Component {
         </div>
         <div>
           <ul className='list-group'>
-            {_.map(sortedPostsArray(this.props.posts).reverse(), (post, index) => {
+            {_.map(sortedPostsArray(posts).reverse(), (post, index) => {
               if (index >= startOffset && startCount < perPage) {
                 startCount++;
                 return(

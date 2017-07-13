@@ -1,10 +1,10 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
+import Moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export default (props) => {
-  const selected = props.input.value ? moment(props.input.value) : null;
+  const selected = props.input.value ? Moment(props.input.value) : null;
   return (
     <div>
       <label>{props.label}</label>
@@ -13,7 +13,7 @@ export default (props) => {
                   selected={selected}
                   dateFormat="YYYY/MM/DD"
                   todayButton={"Today"}
-                  maxDate={moment()}
+                  maxDate={Moment()}
                   placeholderText="Click to select a date"
       />
       <div className="text-help">

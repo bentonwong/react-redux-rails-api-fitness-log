@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../actions'
+import * as actions from '../actions';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import ButtonLink from '../components/ButtonLink';
 import FormField from '../components/FormField';
 import DateField from '../components/DateField';
-import 'react-datepicker/dist/react-datepicker.css';
 
 class PostForm extends Component {
   componentDidMount() {
@@ -19,12 +19,13 @@ class PostForm extends Component {
   }
 
   handleInitialize() {
+    const post = this.props.post;
     const initData = {
-      "date": this.props.post.date,
-      "context": this.props.post.context,
-      "food": this.props.post.food,
-      "workout": this.props.post.workout,
-      "weight": this.props.post.weight
+      "date": post.date,
+      "context": post.context,
+      "food": post.food,
+      "workout": post.workout,
+      "weight": post.weight
     }
     this.props.initialize(initData);
   }

@@ -1,14 +1,15 @@
 import React from 'react';
-import moment from 'moment';
+import Moment from 'moment';
 
 export default (props) => {
-  return(
+  const data = props.data;
+  return (
     <div>
-      <h4>{moment(props.data.date).format('dddd, MMMM Do YYYY')}</h4>
-      <p>Context: {props.data.context}</p>
-      <p>Food: {props.data.food}</p>
-      <p>Workout: {props.data.workout}</p>
-      <p>Weight: {props.data.weight}</p>
+      <h4>{Moment(data.date).format('dddd, MMMM Do YYYY')}</h4>
+      <p>Context: {data.context}</p>
+      <p>Food: {data.food}</p>
+      <p>Workout: {data.workout}</p>
+      <p>Weight: {data.weight}</p>
     </div>
   );
 }

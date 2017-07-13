@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
+
 import ShowPost from '../components/ShowPost';
 import ButtonLink from '../components/ButtonLink';
 
@@ -24,7 +25,7 @@ class PostShow extends Component {
     const { post } = this.props;
 
     if (!post) {
-      return <div>loading...</div>
+      return <div><img src="http://i.imgur.com/j2f0p2O.gifv" alt="loading..." /></div>
     }
 
     return (

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
-
+import Moment from 'moment';
 
 export default (props) => {
+  const data = props.data;
   return(
     <div>
-      <li className='list-group-item' key={props.data.id}>
-        <Link to={`/posts/${props.data.id}`}>
-          {moment(props.data.date).format('MMM DD, YYYY')} | {props.data.context}
+      <li className='list-group-item' key={data.id}>
+        <Link to={`/posts/${data.id}`}>
+          {Moment(data.date).format('MMM DD, YYYY')} | {data.context}
         </Link>
       </li>
     </div>
