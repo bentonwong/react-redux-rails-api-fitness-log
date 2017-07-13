@@ -13,11 +13,8 @@ body {
   text-decoration: none;
 }
 
-.btn-text-white {
+.btn-link-text {
   color:white;
-}
-
-.btn-text-center {
   text-align:center;
 }
 

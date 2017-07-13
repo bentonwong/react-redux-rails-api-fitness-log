@@ -17,7 +17,7 @@ class PostShow extends Component {
   handleDeleteClick() {
     const { id } = this.props.match.params;
     this.props.deletePost(id, () => {
-      this.props.history.push('/')
+      this.props.history.push('/');
     });
   }
 
@@ -25,16 +25,16 @@ class PostShow extends Component {
     const { post } = this.props;
 
     if (!post) {
-      return <div><img src="http://i.imgur.com/j2f0p2O.gifv" alt="loading..." /></div>
+      return <div>loading...</div>
     }
 
     return (
       <div>
-        <ButtonLink className="btn btn-primary btn-sm" to="/" buttonText="Back to Posts" />
+        <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
         <div className="btn-group btn-group-sm btn-add-margin">
-          <button className="btn btn-block btn-warning"><ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn-text-white btn-text-center" /></button>
-          <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-danger btn-md btn-block">Delete</button>
+          <button className="btn btn-primary btn-block btn-warning"><ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn-link-text" /></button>
+          <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-primary btn-block btn-danger ">Delete</button>
         </div>
       </div>
     );
