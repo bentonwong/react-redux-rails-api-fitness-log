@@ -59,17 +59,16 @@ class PostsIndex extends Component {
           <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={current_page} onSelect={this.changePage}/>
         </div>
       </div>
-    )
+    );
   }
 
   changePage(page, location) {
     this.props.history.push(`${location.target.pathname}?page_no=${page}`)
   }
-
 }
 
 function sortedPostsArray(posts) {
-  return _.sortBy(posts, 'date')
+  return _.sortBy(posts, 'date');
 }
 
 function mapStateToProps(state, ownProps) {
@@ -77,11 +76,11 @@ function mapStateToProps(state, ownProps) {
   return {
       posts: state.posts,
       page: Number(queryParam.page_no) || 1,
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPosts, push }, dispatch)
+  return bindActionCreators({ fetchPosts, push }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);

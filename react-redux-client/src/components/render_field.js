@@ -9,5 +9,5 @@ export default (props) => {
       </div>
       <div className="text-help">{props.meta.touched ? props.meta.error : ''}</div>
     </div>
-  )
+  );
 }
