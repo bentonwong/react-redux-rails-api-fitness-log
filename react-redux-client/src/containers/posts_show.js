@@ -5,14 +5,17 @@ import ShowPost from '../components/show_post';
 import ButtonLink from '../components/button_link';
 
 class PostsShow extends Component {
+
   componentDidMount() {
-    this.props.fetchPost(id(this.props), () => {
+    const { id } = this.props.match.params;
+    this.props.fetchPost(id, () => {
       console.log(this.props)
     });
   }
 
   handleDeleteClick() {
-    this.props.deletePost(id(this.props), () => {
+    const { id } = this.props.match.params;
+    this.props.deletePost(id, () => {
       this.props.history.push('/')
     });
   }
@@ -35,10 +38,6 @@ class PostsShow extends Component {
       </div>
     );
   }
-}
-
-function id(props) {
-  return props.match.params.id;
 }
 
 function mapStateToProps({ posts }, ownProps) {

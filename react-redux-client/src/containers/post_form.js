@@ -3,17 +3,16 @@ import { Field, reduxForm, initialize } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../actions'
 
-import moment from 'moment';
 import ButtonLink from '../components/button_link';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import renderField from '../components/render_field';
 import renderDateField from '../components/render_date_field';
 
 class PostForm extends Component {
   componentDidMount() {
-    if (id(this.props)) {
-      this.props.fetchPost(id(this.props), () => {
+    const { id } = this.props.match.params;
+    if (id) {
+      this.props.fetchPost(id, () => {
         this.handleInitialize()
       });
     }
@@ -31,9 +30,10 @@ class PostForm extends Component {
   }
 
   handleFormSubmit(values) {
-    if (this.props.match.params.id) {
-      this.props.editPost(this.props.match.params.id, values, () => {
-        this.props.history.push(`/posts/${this.props.match.params.id}`);
+    const { id } = this.props.match.params;
+    if (id) {
+      this.props.editPost(id, values, () => {
+        this.props.history.push(`/posts/${id}`);
       });
     } else {
       this.props.createPost(values, () => {
@@ -44,7 +44,6 @@ class PostForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    console.log(this.props)
     return (
       <div>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -73,10 +72,6 @@ class PostForm extends Component {
       </div>
     );
   }
-}
-
-function id(props) {
-  return props.match.params.id;
 }
 
 function validate(values) {
