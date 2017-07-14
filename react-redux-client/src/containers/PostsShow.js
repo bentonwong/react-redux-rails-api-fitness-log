@@ -8,10 +8,12 @@ import ButtonLink from '../components/ButtonLink';
 class PostsShow extends Component {
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.props.fetchPost(id, () => {
-      console.log(this.props)
-    });
+    if (!this.props.post) {
+      const { id } = this.props.match.params;
+      this.props.fetchPost(id, () => {
+        console.log(this.props)
+      });
+    }
   }
 
   handleDeleteClick() {
