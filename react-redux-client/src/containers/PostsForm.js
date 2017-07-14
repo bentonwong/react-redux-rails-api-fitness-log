@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 import Form from '../components/Form';
 
-class PostForm extends Component {
+class PostsForm extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -84,8 +84,8 @@ function mapStateToProps({ posts }, ownProps) {
 }
 
 const form = reduxForm({
-  form: 'PostForm',
+  form: 'PostsForm',
   validate
 });
 
-export default connect(mapStateToProps, actions)(form(PostForm));
+export default connect(mapStateToProps, actions)(form(PostsForm));

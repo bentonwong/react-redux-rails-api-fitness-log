@@ -19,7 +19,7 @@ Enhanced Object Literals
             posts
           }))
 
-  defining methods and making super calls - example from PostForm.js
+  defining methods and making super calls - example from PostsForm.js
 
     function mapStateToProps({ posts }, ownProps) {
       return { post: posts[ownProps.match.params.id] };
@@ -27,7 +27,7 @@ Enhanced Object Literals
 
 Template Strings
 
-  Example: from PostForm.js, construct an HTTP request prefix is used to interpret the replacements and construction
+  Example: from PostsForm.js, construct an HTTP request prefix is used to interpret the replacements and construction
 
     this.props.createPost(values, (newPostObj) => {
             this.props.history.push(`/posts/${newPostObj.post["id"]}`);
@@ -35,7 +35,7 @@ Template Strings
 
 Destructing:
 
-  Example: object matching shorthand in PostForm.js
+  Example: object matching shorthand in PostsForm.js
 
   	  const { id } = this.props.match.params;
 
@@ -63,8 +63,8 @@ A single HTML page that renders the application is located at: react-redux-clien
 
 ✔  There should be 2 container components.
 
-  1-PostForm - renders the form for creating and editing posts
-  2-PostShow - renders the page for showing an individual post
+  1-PostsForm - renders the form for creating and editing posts
+  2-PostsShow - renders the page for showing an individual post
   3-PostsIndex - renders the page listing all the posts along with a pagination bar and a chart showing weight data over time
 
 ✔  There should be 5 stateless components
@@ -72,17 +72,17 @@ A single HTML page that renders the application is located at: react-redux-clien
   1-ButtonLink - enables buttons to redirect to redirect the page to a specified route used by multiple containers
   2-Chart - generates a chart showing weight data over time displayed on PostsIndex
   3-DateField - generates the calendar date picker used by Form
-  4-Form - organizes the fields for the form to create and edit posts used by the PostForm container
+  4-Form - organizes the fields for the form to create and edit posts used by the PostsForm container
   5-FormField - generates the input to collect data used by Form
   6-IndexPost - renders an individual mini post that is displayed on the PostIndex container
-  7-ShowPost - renders the data for an individual post to be displayed on the PostShow container
+  7-ShowPost - renders the data for an individual post to be displayed on the PostsShow container
 
 ✔  There should be 3 routes
 
   1-‘/’ - renders the PostsIndex component to display list of posts
-  2-‘/posts/:id’ - renders the PostShow component to display an individual post
-  3-‘/posts/edit/:id’ - renders the PostForm component to display a form prepopulated with post values to be edited and save
-  4-‘/posts/new’ - renders the PostForm component to display a blank form to be filled in and saved
+  2-‘/posts/:id’ - renders the PostsShow component to display an individual post
+  3-‘/posts/edit/:id’ - renders the PostsForm component to display a form prepopulated with post values to be edited and save
+  4-‘/posts/new’ - renders the PostsForm component to display a blank form to be filled in and saved
 
 ✔  The Application must make use of react-router and proper RESTful routing (should you choose to use react-router v3 please refer to the appropriate docs; docs for v4 can be found here)
 

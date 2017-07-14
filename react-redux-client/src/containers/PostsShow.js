@@ -5,7 +5,7 @@ import { fetchPost, deletePost } from '../actions';
 import ShowPost from '../components/ShowPost';
 import ButtonLink from '../components/ButtonLink';
 
-class PostShow extends Component {
+class PostsShow extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -45,4 +45,4 @@ function mapStateToProps({ posts }, ownProps) {
   return { post: posts[ownProps.match.params.id] };
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost })(PostShow);
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
