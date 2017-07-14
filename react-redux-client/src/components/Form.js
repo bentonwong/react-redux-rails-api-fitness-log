@@ -44,14 +44,13 @@ export default (props) => {
           />
         </div>
       </div>
-      <div className="btn-group btn-group-sm btn-add-margin">
-
-        <button action="submit" className="btn btn-primary">Submit</button>
-
-        <button className="btn btn-danger">
-          <ButtonLink to={props.id ? `/posts/${props.id}` : '/'} buttonText="Cancel" className="btn-link-text" />
-        </button>
-
+      <div className="row btn-add-margin">
+        <div className="col-xs-2">
+          <button action="submit" className="btn btn-primary btn-block">Submit</button>
+        </div>
+        <div className="col-xs-2">
+          <ButtonLink to={props.id ? `/posts/${props.id}` : '/'} buttonText="Cancel" className="btn btn-danger btn-block" />
+        </div>
       </div>
     </div>
   );

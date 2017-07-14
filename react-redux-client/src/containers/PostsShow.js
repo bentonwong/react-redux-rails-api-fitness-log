@@ -32,11 +32,15 @@ class PostsShow extends Component {
 
     return (
       <div>
-        <ButtonLink className="btn btn-primary btn-md" to="/" buttonText="Back to Posts" />
+        <ButtonLink className="btn btn-primary btn-md btn-add-margin" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
-        <div className="btn-group btn-group-sm btn-add-margin">
-          <button className="btn btn-primary btn-block btn-warning"><ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn-link-text" /></button>
-          <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-primary btn-block btn-danger ">Delete</button>
+        <div className="row btn-add-margin">
+          <div className="col-xs-2">
+            <ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn btn-warning btn-block" />
+          </div>
+          <div className="col-xs-2">
+            <button onClick={this.handleDeleteClick.bind(this)} type="submit" className="btn btn-danger btn-block">Delete</button>
+          </div>
         </div>
       </div>
     );
