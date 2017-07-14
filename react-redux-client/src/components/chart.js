@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparklines, SparklinesLine, SparklinesNormalBand, SparklinesReferenceLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine, SparklinesSpots, SparklinesReferenceLine } from 'react-sparklines';
 import _ from 'lodash';
 
 export default (props) => {
@@ -7,7 +7,7 @@ export default (props) => {
     <div>
       <Sparklines data={props.data} limit={30} width={500} height={200}>
         <SparklinesLine style={{ fill: "none" }} color={props.color}/>
-        <SparklinesNormalBand />
+        <SparklinesSpots />
         <SparklinesReferenceLine type="avg" />
       </Sparklines>
       <div className="center-text">{displayAverage(props)}</div>
