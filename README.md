@@ -4,9 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # README
 
-Fitness Log React Redux Client Side Application with a Backend Rails API by Benton Wong
+Fitness/Health Log React Redux Client Side Application with a Backend Rails API by Benton Wong
 
-This application is a React Redux application to log daily fitness activity.  Users can log food, workouts, weight, and any comments providing context to that particular entry.
+This application is a React Redux application to log daily health/fitness activity.  Users can log food, workouts, weight, and any comments providing context to that particular entry.
 
 Data is persisted to a separate Rails API running concurrently.
 

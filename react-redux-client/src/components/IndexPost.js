@@ -8,7 +8,7 @@ export default (props) => {
     <div>
       <li className='list-group-item' key={data.id}>
         <Link to={`/posts/${data.id}`}>
-          {Moment(data.date).format('MMM DD, YYYY')} | {data.context}
+          {Moment(data.date).format('MMM DD, YYYY')} ∙ {data.context}
         </Link>
       </li>
     </div>
