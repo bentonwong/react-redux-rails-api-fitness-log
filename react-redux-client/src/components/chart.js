@@ -5,7 +5,7 @@ import _ from 'lodash';
 export default (props) => {
   return (
     <div>
-      <Sparklines data={props.data} limit={30} svgWidth={500} svgHeight={200}>
+      <Sparklines data={props.data} limit={30} width={500} height={200}>
         <SparklinesLine style={{ fill: "none" }} color={props.color}/>
         <SparklinesNormalBand />
         <SparklinesReferenceLine type="avg" />

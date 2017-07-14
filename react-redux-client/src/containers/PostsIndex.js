@@ -23,7 +23,9 @@ class PostsIndex extends Component {
 
   render() {
     const { posts, page } = this.props;
+    const maxRecentDataPoints = 30;
     const weightData = _.map(sortedPostsArray(posts), post => post.weight);
+    const recentWeightData = weightData.slice(Math.max(weightData.length - maxRecentDataPoints, 1));
     const perPage = 10;
     const currentPage = page;
     const startOffset = (currentPage - 1) * perPage;
@@ -37,8 +39,8 @@ class PostsIndex extends Component {
     return (
       <div>
         <div className="center-chart center-text">
-          <h4>Trending Weight Data (from Most Recent Posts)</h4>
-          <Chart data={weightData} color="green" units="lbs." />
+          <h4 className="center-text">Trending Weight Data (from Most Recent Posts)</h4>
+          <Chart data={recentWeightData} color="green" units="lbs." />
         </div>
         <div>
           <ButtonLink to="/posts/new" buttonText="Add Post" className="btn btn-primary btn-md btn-add-margin" />
