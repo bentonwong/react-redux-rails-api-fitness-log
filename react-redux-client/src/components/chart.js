@@ -10,7 +10,7 @@ export default (props) => {
         <SparklinesSpots />
         <SparklinesReferenceLine type="avg" />
       </Sparklines>
-      <div className="center-text">{displayAverage(props)}</div>
+      <div className="chart-average center-text">{displayAverage(props)}</div>
     </div>
   );
 }

@@ -39,7 +39,7 @@ class PostsIndex extends Component {
     return (
       <div>
         <div className="center-chart center-text">
-          <h4 className="center-text">Trending Weight Data (from Most Recent Posts)</h4>
+          <h4 className="chart-title center-text">Trending Weight Data (from Most Recent Posts)</h4>
           <Chart data={recentWeightData} color="green" units="lbs." />
         </div>
         <div>
