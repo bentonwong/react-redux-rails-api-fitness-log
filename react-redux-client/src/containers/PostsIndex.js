@@ -12,11 +12,6 @@ import IndexPost from '../components/IndexPost';
 import ButtonLink from '../components/ButtonLink';
 
 class PostsIndex extends Component {
-  constructor(props) {
-    super(props);
-
-    this.changePage = this.changePage.bind(this);
-  }
 
   componentDidMount() {
     this.props.fetchPosts();
@@ -61,7 +56,7 @@ class PostsIndex extends Component {
           </ul>
         </div>
         <div className="center-pagination-bar center-text">
-          <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={currentPage} onSelect={this.changePage}/>
+          <Pagination bsSize="medium" maxButtons={5} first last next prev ellipsis boundaryLinks items={pages} activePage={currentPage} onSelect={this.changePage.bind(this)}/>
         </div>
       </div>
     );
