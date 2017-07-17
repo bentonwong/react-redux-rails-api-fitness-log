@@ -40,6 +40,7 @@ class PostsShow extends Component {
 
   render () {
     const { post } = this.props;
+
     if (!post) {
       return <div>loading...</div>
     }
@@ -50,8 +51,8 @@ class PostsShow extends Component {
         <ShowPost data={post} />
         <div>
           <div className="row btn-add-margin btn-group">
-            <button className="btn btn-info" onClick={this.handlePrevClick.bind(this)}>Prev</button>
-            <button className="btn btn-info" onClick={this.handleNextClick.bind(this)}>Next</button>
+            <button className="btn btn-info btn-xs" onClick={this.handlePrevClick.bind(this)}>Prev</button>
+            <button className="btn btn-info btn-xs" onClick={this.handleNextClick.bind(this)}>Next</button>
           </div>
         </div>
 
@@ -75,10 +76,11 @@ class PostsShow extends Component {
 function mapStateToProps({ posts }, ownProps) {
   const sortedPosts = _.sortBy(posts, 'date').reverse();
   const post = posts[ownProps.match.params.id];
-  const prevPost = sortedPosts[sortedPosts.indexOf(post) - 1] ? sortedPosts[sortedPosts.indexOf(post) - 1] : sortedPosts[sortedPosts.indexOf(post)];
-  const nextPost = sortedPosts[sortedPosts.indexOf(post) + 1] ? sortedPosts[sortedPosts.indexOf(post) + 1] : sortedPosts[sortedPosts.indexOf(post)];
+  const postIndex = sortedPosts.indexOf(post)
+  const prevPost = sortedPosts[postIndex - 1] ? sortedPosts[postIndex - 1] : sortedPosts[postIndex];
+  const nextPost = sortedPosts[postIndex + 1] ? sortedPosts[postIndex + 1] : sortedPosts[postIndex];
   return {
-    posts,
+    //posts,
     post,
     prevPost,
     nextPost
