@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost } from '../actions';
+import { fetchPosts, deletePost } from '../actions';
+import _ from 'lodash';
 
 import ShowPost from '../components/ShowPost';
 import ButtonLink from '../components/ButtonLink';
 
 class PostsShow extends Component {
 
+/*
   componentDidMount() {
     if (!this.props.post) {
       const { id } = this.props.match.params;
@@ -14,6 +16,11 @@ class PostsShow extends Component {
         console.log(this.props)
       });
     }
+  }
+*/
+
+  componentDidMount() {
+    this.props.fetchPosts();
   }
 
   handleDeleteClick() {
@@ -24,11 +31,12 @@ class PostsShow extends Component {
   }
 
   handlePrevClick() {
-    console.log("prev clicked");
+    this.props.history.push(`/posts/${this.props.prevPostId}`)
   }
 
   handleNextClick() {
-    console.log("next clicked");
+    console.log(this.props.nextPostId);
+    this.props.history.push(`/posts/${this.props.nextPostId}`)
   }
 
   render () {
@@ -66,14 +74,17 @@ class PostsShow extends Component {
   return { post: posts[ownProps.match.params.id] };
 } */
 
-function mapStateToProps(state, ownProps) {
-  console.log(state.posts);
-  console.log(ownProps.match.params.id);
-  debugger;
+function mapStateToProps({ posts }, ownProps) {
+  const sortedPosts = _.sortBy(posts, 'date').reverse();
+  const post = sortedPosts[ownProps.match.params.id];
+  const prevPostId = sortedPosts.indexOf(post) - 1;
+  const nextPostId = sortedPosts.indexOf(post) + 1;
   return {
-    posts: state.posts,
-    currentPost: state.posts[ownProps.match.params.id]
+    posts,
+    post,
+    prevPostId,
+    nextPostId
   }
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
+export default connect(mapStateToProps, { fetchPosts, deletePost })(PostsShow);
