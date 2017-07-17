@@ -80,7 +80,6 @@ function mapStateToProps({ posts }, ownProps) {
   const prevPost = sortedPosts[postIndex - 1] ? sortedPosts[postIndex - 1] : sortedPosts[postIndex];
   const nextPost = sortedPosts[postIndex + 1] ? sortedPosts[postIndex + 1] : sortedPosts[postIndex];
   return {
-    //posts,
     post,
     prevPost,
     nextPost
