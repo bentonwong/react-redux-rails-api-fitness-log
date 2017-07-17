@@ -23,6 +23,14 @@ class PostsShow extends Component {
     });
   }
 
+  handlePrevClick() {
+    console.log("prev clicked");
+  }
+
+  handleNextClick() {
+    console.log("next clicked");
+  }
+
   render () {
     const { post } = this.props;
 
@@ -34,6 +42,13 @@ class PostsShow extends Component {
       <div>
         <ButtonLink className="btn btn-primary btn-md btn-add-margin" to="/" buttonText="Back to Posts" />
         <ShowPost data={post} />
+        <div>
+          <div className="row btn-add-margin btn-group">
+            <button className="btn btn-info" onClick={this.handlePrevClick.bind(this)}>Prev</button>
+            <button className="btn btn-info" onClick={this.handleNextClick.bind(this)}>Next</button>
+          </div>
+        </div>
+
         <div className="row btn-add-margin">
           <div className="col-xs-2">
             <ButtonLink to={`/posts/edit/${post.id}`} buttonText="Edit" className="btn btn-warning btn-block" />
@@ -47,8 +62,18 @@ class PostsShow extends Component {
   }
 }
 
-function mapStateToProps({ posts }, ownProps) {
+/*function mapStateToProps({ posts }, ownProps) {
   return { post: posts[ownProps.match.params.id] };
+} */
+
+function mapStateToProps(state, ownProps) {
+  console.log(state.posts);
+  console.log(ownProps.match.params.id);
+  debugger;
+  return {
+    posts: state.posts,
+    currentPost: state.posts[ownProps.match.params.id]
+  }
 }
 
 export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);
