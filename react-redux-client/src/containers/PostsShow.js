@@ -31,17 +31,15 @@ class PostsShow extends Component {
   }
 
   handlePrevClick() {
-    this.props.history.push(`/posts/${this.props.prevPostId}`)
+    this.props.history.push(`/posts/${this.props.prevPost.id}`)
   }
 
   handleNextClick() {
-    console.log(this.props.nextPostId);
-    this.props.history.push(`/posts/${this.props.nextPostId}`)
+    this.props.history.push(`/posts/${this.props.nextPost.id}`)
   }
 
   render () {
     const { post } = this.props;
-
     if (!post) {
       return <div>loading...</div>
     }
@@ -76,14 +74,14 @@ class PostsShow extends Component {
 
 function mapStateToProps({ posts }, ownProps) {
   const sortedPosts = _.sortBy(posts, 'date').reverse();
-  const post = sortedPosts[ownProps.match.params.id];
-  const prevPostId = sortedPosts.indexOf(post) - 1;
-  const nextPostId = sortedPosts.indexOf(post) + 1;
+  const post = posts[ownProps.match.params.id];
+  const prevPost = sortedPosts[sortedPosts.indexOf(post) - 1] ? sortedPosts[sortedPosts.indexOf(post) - 1] : sortedPosts[sortedPosts.indexOf(post)];
+  const nextPost = sortedPosts[sortedPosts.indexOf(post) + 1] ? sortedPosts[sortedPosts.indexOf(post) + 1] : sortedPosts[sortedPosts.indexOf(post)];
   return {
     posts,
     post,
-    prevPostId,
-    nextPostId
+    prevPost,
+    nextPost
   }
 }
 
