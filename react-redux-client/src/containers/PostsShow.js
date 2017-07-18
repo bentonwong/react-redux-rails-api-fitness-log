@@ -6,11 +6,11 @@ import ShowPost from '../components/ShowPost';
 import ButtonLink from '../components/ButtonLink';
 
 class PostsShow extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
-      post: this.props.post
+      post: {}
     };
   }
 
