@@ -6,6 +6,13 @@ import * as actions from '../actions';
 import Form from '../components/Form';
 
 class PostsForm extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      post: {}
+    };
+  }
 
   componentDidMount() {
     const { id } = this.props.match.params;

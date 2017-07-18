@@ -12,6 +12,14 @@ import IndexPost from '../components/IndexPost';
 import ButtonLink from '../components/ButtonLink';
 
 class PostsIndex extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts: this.props.posts,
+      page: this.props.page
+    };
+  }
 
   componentDidMount() {
     this.props.fetchPosts();

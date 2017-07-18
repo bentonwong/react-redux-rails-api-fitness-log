@@ -6,6 +6,13 @@ import ShowPost from '../components/ShowPost';
 import ButtonLink from '../components/ButtonLink';
 
 class PostsShow extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      post: this.props.post
+    };
+  }
 
   componentDidMount() {
     if (!this.props.post) {
