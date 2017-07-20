@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_POST, DELETE_POST, EDIT_POST, CREATE_POST } from '../actions';
+import { FETCH_POSTS, FETCH_POST, DELETE_POST, EDIT_POST, CREATE_POST, ADD_LIKE } from '../actions';
 import _ from 'lodash';
 
 export default function(state = {}, action) {
@@ -13,6 +13,8 @@ export default function(state = {}, action) {
       return { ...state, [action.post.id]: action.post};
     case DELETE_POST:
       return _.omit(state, action.id)
+    case ADD_LIKE:
+      return { ...state, [action.post.id]: action.post }
     default:
       return state;
   }

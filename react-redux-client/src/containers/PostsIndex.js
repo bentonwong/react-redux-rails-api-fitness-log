@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchPosts, addLike } from '../actions';
 import { Pagination } from 'react-bootstrap';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
@@ -29,8 +29,15 @@ class PostsIndex extends Component {
     this.props.history.push(`${location.target.pathname}?page_no=${page}`)
   }
 
+  handleLike(post) {
+    //if (!post.likes) {
+      //post.likes = 1
+    //}
+    this.props.addLike(post);
+  }
+
   render() {
-    const { posts, page } = this.props;
+    const { posts, page, handleLike } = this.props;
     const maxRecentDataPoints = 30;
     const weightData = _.map(sortedPostsArray(posts), post => post.weight);
     const recentWeightData = weightData.slice(Math.max(weightData.length - maxRecentDataPoints, 1));
@@ -59,7 +66,9 @@ class PostsIndex extends Component {
               if (index >= startOffset && startCount < perPage) {
                 startCount++;
                 return(
-                  <IndexPost data={post} key={post.id}/>
+                  <div onClick={this.handleLike.bind(this, post)} key={post.id}>
+                    <IndexPost data={post} key={post.id} likes={post.likes} />
+                  </div>
                 );
               }
             })}
@@ -87,7 +96,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPosts, push }, dispatch);
+  return bindActionCreators({ fetchPosts, addLike, push }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);

@@ -21,6 +21,8 @@ Enhanced Object Literals
 
   defining methods and making super calls - example from PostsForm.js
 
+    see constructor statements in each of the components
+
     function mapStateToProps({ posts }, ownProps) {
       return { post: posts[ownProps.match.params.id] };
     }

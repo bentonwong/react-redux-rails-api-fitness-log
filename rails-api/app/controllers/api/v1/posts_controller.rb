@@ -29,7 +29,7 @@ module Api
       private
 
         def post_params
-          params.require(:post).permit(:date, :context, :food, :workout, :weight)
+          params.require(:post).permit(:date, :context, :food, :workout, :weight, :likes)
         end
 
         def set_post

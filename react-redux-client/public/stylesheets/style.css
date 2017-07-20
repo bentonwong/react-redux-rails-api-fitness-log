@@ -37,6 +37,11 @@ body {
   display: inline-block;
 }
 
+.btn-like {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 .add-margin-below-date-picker {
   margin-bottom: 15px;
 }
