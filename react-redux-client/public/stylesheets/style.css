@@ -38,8 +38,11 @@ body {
 }
 
 .btn-like {
-  position: absolute;
-  right: 20px;
+  float: right;
+}
+
+.btn-unlike {
+  float: right;
 }
 
 .add-margin-below-date-picker {

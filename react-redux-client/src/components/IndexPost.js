@@ -12,8 +12,9 @@ export default (props) => {
         <Link to={`/posts/${data.id}`}>
           {Moment(data.date).format('MMM DD, YYYY')} ∙ {data.context}
         </Link>
+
           <button value="Like" className='btn btn-primary btn-xs btn-like'>Like {data.likes ? data.likes : ''}</button>
-          {data.likes ? <button value="Unlike" className='btn btn-danger btn-xs'>Unlike</button> : ''}
+          {data.likes ? <button value="Unlike" className='btn btn-danger btn-xs btn-unlike'>Unlike</button> : ''}
       </li>
     </div>
   );
