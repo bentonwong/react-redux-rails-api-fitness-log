@@ -43,6 +43,7 @@ body {
 
 .btn-unlike {
   float: right;
+  margin-right: 1em;
 }
 
 .add-margin-below-date-picker {

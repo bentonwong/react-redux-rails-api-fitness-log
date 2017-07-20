@@ -30,7 +30,10 @@ class PostsIndex extends Component {
   }
 
   handleLike(post, event) {
-    this.props.addLike(post, event.target.value);
+    const action = event.target.value;
+    if (action === "Like" || action === "Unlike") {
+      this.props.addLike(post, action);
+    }
   }
 
   render() {
