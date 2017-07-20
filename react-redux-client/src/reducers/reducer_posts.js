@@ -14,7 +14,7 @@ export default function(state = {}, action) {
     case DELETE_POST:
       return _.omit(state, action.id)
     case ADD_LIKE:
-      return { ...state, [action.post.id]: action.post }
+      return { ...state, [action.post.id]: action.post };
     default:
       return state;
   }

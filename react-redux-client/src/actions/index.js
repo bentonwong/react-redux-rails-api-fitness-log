@@ -6,11 +6,13 @@ export const EDIT_POST = 'edit_post';
 export const ADD_LIKE = 'add_like';
 export const POSTS_API_URL_ROOT = 'http://localhost:3000/api/v1/posts';
 
-export function addLike(post) {
+export function addLike(post, action) {
   if (!post.likes) {
     post.likes = 1
-  } else {
+  } else if (action === "Like") {
     post.likes += 1
+  } else if (action === "Unlike") {
+    post.likes -= 1
   }
   return (dispatch) => {
     return fetch(`${POSTS_API_URL_ROOT}/${post.id}`, {

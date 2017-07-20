@@ -29,11 +29,8 @@ class PostsIndex extends Component {
     this.props.history.push(`${location.target.pathname}?page_no=${page}`)
   }
 
-  handleLike(post) {
-    //if (!post.likes) {
-      //post.likes = 1
-    //}
-    this.props.addLike(post);
+  handleLike(post, event) {
+    this.props.addLike(post, event.target.value);
   }
 
   render() {
@@ -66,7 +63,7 @@ class PostsIndex extends Component {
               if (index >= startOffset && startCount < perPage) {
                 startCount++;
                 return(
-                  <div onClick={this.handleLike.bind(this, post)} key={post.id}>
+                  <div key={post.id} onClick={this.handleLike.bind(this, post)}>
                     <IndexPost data={post} key={post.id} likes={post.likes} />
                   </div>
                 );

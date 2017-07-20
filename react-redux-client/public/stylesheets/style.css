@@ -38,8 +38,8 @@ body {
 }
 
 .btn-like {
-  margin-left: 10px;
-  margin-top: 10px;
+  position: absolute;
+  right: 20px;
 }
 
 .add-margin-below-date-picker {
