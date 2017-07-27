@@ -6,8 +6,6 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.text :food
       t.text :workout
       t.integer :weight
-
-      t.timestamps
     end
   end
 end
