@@ -4,7 +4,7 @@ export const CREATE_POST = 'create_post';
 export const DELETE_POST = 'delete_post';
 export const EDIT_POST = 'edit_post';
 export const ADD_LIKE = 'add_like';
-export const POSTS_API_URL_ROOT = 'http://localhost:3000/api/v1/posts';
+export const POSTS_API_URL_ROOT = 'http://my-fitness-log-api.herokuapp.com/api/v1/posts';
 
 export function addLike(post, action) {
   if (!post.likes) {
